@@ -2,6 +2,7 @@
   import type { Moment } from "moment";
 
   import Arrow from "./Arrow.svelte";
+  import YearArrow from "./YearArrow.svelte";
 
   export let displayedMonth: Moment;
   export let today: Moment;
@@ -9,6 +10,8 @@
   export let resetDisplayedMonth: () => void;
   export let incrementDisplayedMonth: () => void;
   export let decrementDisplayedMonth: () => void;
+  export let incrementDisplayedYear: () => void;
+  export let decrementDisplayedYear: () => void;
 
   // Get the word 'Today' but localized to the current language
   const todayDisplayStr = today.calendar().split(/\d|\s/)[0];
@@ -23,6 +26,11 @@
     <span class="year">{displayedMonth.format("YYYY")}</span>
   </h3>
   <div class="right-nav">
+    <YearArrow
+      direction="left"
+      onClick="{decrementDisplayedYear}"
+      tooltip="Previous Year"
+    />
     <Arrow
       direction="left"
       onClick="{decrementDisplayedMonth}"
@@ -35,6 +43,11 @@
       direction="right"
       onClick="{incrementDisplayedMonth}"
       tooltip="Next Month"
+    />
+    <YearArrow
+      direction="right"
+      onClick="{incrementDisplayedYear}"
+      tooltip="Next Year"
     />
   </div>
 </div>

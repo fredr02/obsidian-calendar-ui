@@ -58,6 +58,14 @@
     displayedMonth = displayedMonth.clone().subtract(1, "month");
   }
 
+  export function incrementDisplayedYear() {
+    displayedMonth = displayedMonth.clone().add(12, "month");
+  }
+
+  export function decrementDisplayedYear() {
+    displayedMonth = displayedMonth.clone().subtract(12, "month");
+  }
+
   export function resetDisplayedMonth() {
     displayedMonth = today.clone();
   }
@@ -70,6 +78,8 @@
     incrementDisplayedMonth="{incrementDisplayedMonth}"
     decrementDisplayedMonth="{decrementDisplayedMonth}"
     resetDisplayedMonth="{resetDisplayedMonth}"
+    incrementDisplayedYear="{incrementDisplayedYear}"
+    decrementDisplayedYear="{decrementDisplayedYear}"
   />
   <table class="calendar">
     <colgroup>
